@@ -1,0 +1,600 @@
+@import url('https://fonts.googleapis.com/css2?family=Saira:wght@400;500;600&display=swap&family=Tajawal:wght@300;400;500&display=swap');
+
+$main-green: #2A4742;
+$main-gray: #7E7E7E;
+$main-light-green: #C9D5D3;
+$main-font-saira: 'Saira', sans-serif;
+$main-font-tajawal: 'Tajawal', sans-serif;
+
+@mixin for-phone-tablet-portrait {
+  @media (max-width: 899px) { @content; }//0 to 899px
+}
+@mixin for-tablet-portrait-only {
+  @media (min-width: 600px) and (max-width: 899px) { @content; } //Change for tablet
+}
+@mixin for-tablet-landscape-only {
+  @media (min-width: 900px) and (max-width: 1199px) { @content; }
+}
+@mixin for-desktop-up {
+  @media (min-width: 1200px) { @content; }
+}
+
+// @include for-phone-only { }
+// @include for-tablet-portrait-only { }
+// @include for-tablet-landscape-only {  }
+// @include for-desktop-only { }
+// @include for-big-desktop-up { }
+
+
+body {margin: 0;}
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+}
+.section-title {
+  font-family: $main-font-saira;
+  text-align: center;
+  font-weight: 400;
+  @include for-phone-tablet-portrait {
+    font-size: 1.8rem;
+  }
+  @include for-tablet-landscape-only {
+    font-size: 3rem;
+  }
+  @include for-desktop-up { 
+    font-size: 2.2rem;
+  }
+}
+.icon svg {
+  margin: 0 0.5rem;
+  
+  @include for-phone-tablet-portrait {
+    margin: 0.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: white;
+  }
+  @include for-tablet-landscape-only {
+    width: 3rem;
+    height: 3rem;
+  }
+  @include for-desktop-up { 
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  &:hover {
+    opacity: 50%;
+  }
+}
+@keyframes visit-arrow {
+  40%  {
+    -moz-transform: translate(20px, 0px);
+    -webkit-transform: translate(20px, 0px);
+    -o-transform: translate(20px, 0px);
+    -ms-transform: translate(20px, 0px);
+  }
+  75% {
+    -moz-transform: translate(0);
+    -webkit-transform: translate(0);
+    -o-transform: translate(0);
+    -ms-transform: translate(0);
+  }
+}
+
+
+.nav {
+  position: fixed;
+  right: 0;
+  top: 0;
+  text-align: center;
+  padding: 1.9rem 0.6rem 0 0;
+  
+  @include for-phone-tablet-portrait { 
+    padding: 1.25rem 0;
+  }
+
+  ul {
+    list-style-type: none;
+  }
+  a .dot {
+    background-color: $main-gray;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 0.2rem;
+    height: 1.2rem;
+    width: 1.2rem;
+    @include for-phone-tablet-portrait { 
+      margin-right: 3px;
+      height: 22px;
+      width: 22px;
+    }
+  }
+  .nav-link {
+    font-family: $main-font-saira;
+    color: $main-gray;
+    display: block;
+    writing-mode: vertical-rl;
+    text-decoration: none;
+    margin-top: 1.5rem;
+    font-size: 1.5rem;
+    
+    @include for-phone-tablet-portrait { 
+      margin-top: 1.25rem;
+      font-size: 1.3rem;
+    }
+    @include for-tablet-landscape-only {
+      font-size: 1.8rem;
+    }
+  }
+  .active {
+    color: black !important;
+    .dot {
+      background-color: black!important;
+    }
+  }
+}
+
+.main-wrap {  
+    width: 100%;
+    height: 100vh;
+  
+  .main-panel-name {
+    background-color: $main-light-green;
+    float: right;
+    width: 50%;
+    height: 97%;
+    @include for-phone-tablet-portrait { 
+      height: 40%;
+      width: initial;
+      float: unset;
+    }
+    .main-text-name {
+      font-family: $main-font-saira;
+      font-weight: 500;
+      font-size: 1.8rem;
+      
+      @include for-tablet-landscape-only {
+        font-size: 3rem;
+      }
+      @include for-desktop-up { 
+        font-size: 3.45rem;
+      }
+    }
+    .icons-box {
+      display: flex;
+      flex-direction: row;
+      position: absolute;
+      bottom: 4%;
+      right: 0;
+      margin: 0 4.4rem 0.6rem 0;
+      
+      @include for-phone-tablet-portrait { 
+        top: 0;
+        left: 0;
+        margin: initial;
+      }
+    }
+  }
+  .main-panel-description {
+    background-color: $main-green;
+    float: left;
+    width: 50%;
+    height: 97%;
+    @include for-phone-tablet-portrait { 
+      height: 58%;
+      width: initial;
+      float: unset;
+    }
+
+    .main-text-description {
+      font-family: $main-font-tajawal;
+      color: white;
+      white-space: pre-line;
+      width: 70%;
+      
+      @include for-phone-tablet-portrait { 
+        width: 75%;
+        text-align: center;
+        font-size: 1rem;
+      }
+      @include for-tablet-landscape-only {
+        font-size: 1.7rem;
+      }
+      @include for-desktop-up {
+        font-size: 2rem;
+      }
+    }
+    .main-contact-button {
+      font-family: $main-font-saira;
+      border: none;
+      background-color: white;
+      text-decoration: none;
+      font-weight: 600;
+      color: black;
+      transition: all 0.25s;
+      margin-top: 1.5rem;
+      padding: 0.6rem 1.5rem;
+      font-size: 1rem;
+      
+      @include for-phone-tablet-portrait {
+        margin-top: 1rem;
+        padding: 0.7rem 2rem;
+      }
+      @include for-tablet-landscape-only {
+        font-size: 1.3rem;
+      }
+      &:hover {
+        box-shadow: 0.19rem 0.25rem 0 0 $main-light-green;
+        -webkit-box-shadow: 0.19rem 0.25rem 0 0 $main-light-green;
+        -moz-box-shadow: 0.19rem 0.25rem 0 0 $main-light-green;
+      }
+    }
+  }
+}
+
+.my-work {
+  padding-top: 4%;
+  padding-bottom: 5%;
+
+  .panel {
+    background-color: $main-light-green;
+    margin: 6.25rem;
+    min-width: 43.75rem;
+    width: 45%;
+    max-width: 54.7rem;
+    height: 31.25rem;
+    
+    @include for-phone-tablet-portrait { 
+      height: initial;
+      min-width: initial;
+      width: 75%;
+      max-width: initial;
+      margin: 2rem 0;
+      padding: 2rem 0;
+    }
+    
+    .side-panel {
+      background-color: $main-green;
+      
+      @include for-phone-tablet-portrait {
+        svg { display: none; }
+      }
+      @include for-tablet-landscape-only {
+        min-width: 15rem;
+        width: 35%;
+        max-width: 19.4rem;
+        height: 100%;
+      }
+      @include for-desktop-up {
+        min-width: 15rem;
+        width: 35%;
+        max-width: 19.4rem;
+        height: 100%;
+      }
+    }
+    .side-panel-left {
+      float: left;
+      -moz-transform: rotate(7deg) translate(-1.875rem, -3.44rem);
+      -webkit-transform: rotate(7deg) translate(-1.875rem, -3.44rem);
+      -o-transform: rotate(7deg) translate(-1.875rem, -3.44rem);
+      -ms-transform: rotate(7deg) translate(-1.875rem, -3.44rem);
+      transform: rotate(7deg) translate(-1.875rem, -3.44rem);
+      
+      @include for-phone-tablet-portrait {
+        float: unset;
+        transform: unset;
+      }
+    }
+    .side-panel-right {
+      float: right;
+      -moz-transform: rotate(-7deg) translate(3.125rem, 2.5rem);
+      -webkit-transform: rotate(-7deg) translate(3.125rem, 2.5rem);
+      -o-transform: rotate(-7deg) translate(3.125rem, 2.5rem);
+      -ms-transform: rotate(-7deg) translate(3.125rem, 2.5rem);
+      transform: rotate(-7deg) translate(3.125rem, 2.5rem);
+      
+      @include for-phone-tablet-portrait {
+        float: unset;
+        transform: unset;
+      }
+    }
+
+    .panel-text {
+      .panel-text-title {
+        font-family: $main-font-saira;
+        text-align: center;
+        font-weight: 400;
+        
+        @include for-tablet-landscape-only {
+          font-size: 1.9rem;
+        }
+        @include for-desktop-up {
+          font-size: 1.76rem;
+        }
+      }
+      .panel-text-description {
+        font-family: $main-font-tajawal;
+        white-space: pre-line;
+        width: 80%;
+        
+        @include for-phone-tablet-portrait {
+          font-size: 1rem;
+        }
+        @include for-tablet-landscape-only {
+          font-size: 1.5rem;
+        }
+        @include for-desktop-up {
+          font-size: 1.25rem;
+        }
+      }
+      .panel-text-visit {
+        font-family: $main-font-tajawal;
+        text-decoration: none;
+        color: black;
+        margin-left: auto;
+        margin-right: 25%;
+        
+        @include for-phone-tablet-portrait {
+          position: relative;
+          margin: initial;
+          left: 25%;
+        }
+        @include for-tablet-landscape-only {
+          font-size: 1.5rem;
+        }
+        @include for-desktop-up {
+          font-size: 1.25rem;
+        }
+
+        &:hover svg {
+          animation: visit-arrow 2.5s infinite;
+          @include for-phone-tablet-portrait {
+            animation: unset;
+          }
+        }
+      }
+    }
+    .panel-text-left {
+      transform: rotate(2deg);
+      -webkit-transform: rotate(2deg);
+      -moz-transform: rotate(2deg);
+      -o-transform: rotate(2deg);
+      
+      @include for-phone-tablet-portrait {
+        transform: unset;
+      }
+    }
+    .panel-text-right {
+        transform: rotate(-2deg);
+        -webkit-transform: rotate(-2deg);
+        -moz-transform: rotate(-2deg);
+        -o-transform: rotate(-2deg);
+      
+       @include for-phone-tablet-portrait {
+         transform: unset;
+      }
+    }
+  }
+  .panel-left {
+    -moz-transform: rotate(358deg);
+    -webkit-transform: rotate(358deg);
+    -o-transform: rotate(358deg);
+    -ms-transform: rotate(358deg);
+    transform: rotate(358deg);
+    
+    @include for-phone-tablet-portrait {
+      transform: unset;
+      box-shadow: -0.3125rem 6px 0.375rem 0 $main-green;
+      -webkit-box-shadow: -0.3125rem 0.375rem 0 0 $main-green;
+      -moz-box-shadow: -0.3125rem 0.375rem 0 0 $main-green;
+    }
+  }
+  .panel-right {
+    -moz-transform: rotate(2deg);
+    -webkit-transform: rotate(2deg);
+    -o-transform: rotate(2deg);
+    -ms-transform: rotate(2deg);
+    transform: rotate(2deg);
+    
+    @include for-phone-tablet-portrait {
+      transform: unset;
+      box-shadow: 0.3125rem 0.375rem 0 0 $main-green;
+      -webkit-box-shadow: 0.3125rem 0.375rem 0 0 $main-green;
+      -moz-box-shadow: 0.3125rem 0.375rem 0 0 $main-green;
+    }
+  }
+}
+
+.contact-me {
+  .contact-container {
+    background-color: $main-green;
+    margin: 0 auto;
+    width: 90%;
+    height: 43.75rem;
+    
+    @include for-phone-tablet-portrait {
+      width: 100%;
+      height: initial;
+      padding: 1.6rem 0;
+    }
+
+    .contact-container-skills {
+      float: right;
+      width: 55%;
+      height: 100%;
+      
+      @include for-phone-tablet-portrait {
+        float: unset;
+        width: initial;
+        height: initial;
+      }
+
+      .contact-skills-title {
+        color: white;
+        font-size: 1.875rem;
+        text-decoration: underline;
+        margin-bottom: 0.625rem;
+        
+        @include for-phone-tablet-portrait { 
+          margin-bottom: unset;
+        }
+      }
+      .contact-skills-description {
+        font-family: $main-font-tajawal;
+        color: white;
+        white-space: pre-line;
+        width: 90%;
+        
+        @include for-phone-tablet-portrait { 
+          width: 80%;
+        }
+        @include for-tablet-portrait-only {
+          text-align: center;
+        }
+        @include for-tablet-landscape-only {
+           font-size: 1.5rem;
+        }
+        @include for-desktop-up {
+          font-size: 1.25rem;
+        }
+
+        .contact-skills-note {
+          color: red;
+        }
+      }
+    }
+    .contact-container-form {
+      float: left; 
+      width: 45%;
+      height: 100%;
+      
+      @include for-phone-tablet-portrait {
+        height: initial;
+        width: initial;
+        float: unset;
+      }
+
+      .contact-form {
+        width: 80%;
+        text-align: center;
+        
+        @include for-phone-tablet-portrait {
+          width: initial;
+          margin-top: 3rem;
+        }
+
+        .input {
+          border: 2px solid white;
+          border-right: 0;
+          border-left: 0;
+          border-radius: none;
+          background-color: white;
+          color: black;
+          font-family: $main-font-tajawal;
+          text-align: center;
+          padding: 0.7rem 2%;
+          transition: all 0.5s;
+          font-size: 1.125rem;
+          
+          @include for-phone-tablet-portrait { 
+            width: 70%;
+            padding: 0.2rem 0.4rem;
+            margin-bottom: 0.7rem;
+            font-size: 1.1rem;
+            transition: none;
+          }
+          @include for-tablet-landscape-only {
+            width: 70%;
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+          }
+
+          &:focus {
+            @include for-tablet-landscape-only {
+              outline: none;
+              border-bottom: 2px solid $main-gray;
+            }
+            @include for-desktop-up {
+              outline: none;
+              border-bottom: 2px solid $main-gray;
+            }
+          }
+        }
+        .contact-form-name {
+          @include for-desktop-up {
+            float: left; 
+            width: 42%;
+            margin: 4% 0;
+          }
+        }
+        .contact-form-surname {
+          @include for-desktop-up {
+            float: right; 
+            width: 42%;
+            margin: 4% 0;
+          }
+        }
+        .contact-form-email {
+          @include for-desktop-up { 
+            width: 96%;
+            margin: 2% 0;
+          }
+        }
+        .contact-form-textarea {
+          resize: none;
+          text-align: start;
+          
+          @include for-phone-tablet-portrait {
+            margin-top: 0.4rem;
+            height: 7rem;
+          }
+          @include for-tablet-landscape-only {
+            margin-top: 0.4rem;
+            height: 7rem;
+          }
+          @include for-desktop-up { 
+            width: 96%;
+            height: 40%;
+            margin: 4% 0;
+          }
+
+          &::placeholder {
+            text-align: center;
+          }
+        }
+        .contact-form-submit {
+          display: block;
+          background-color: $main-light-green;
+          border: none;
+          margin: 5% auto;
+          padding: 0.8rem 10%;
+          font-weight: 600;
+          transition: all 0.4s;
+
+          &:hover {
+            box-shadow: 3px 4px 0px 0px white;
+            -webkit-box-shadow: 3px 4px 0px 0px white;
+            -moz-box-shadow: 3px 4px 0px 0px white;
+          }
+        }
+      }
+    }
+  }
+} 
+
+.footer {
+  font-family: $main-font-saira;
+  padding: 0;
+  text-align: center;
+  margin: 1rem;
+  @include for-phone-tablet-portrait { 
+  font-size: 0.7rem;
+  }
+  @include for-tablet-landscape-only {  }
+  @include for-desktop-up { 
+    font-size: 0.8rem;
+  }
+}
